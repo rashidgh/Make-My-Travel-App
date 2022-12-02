@@ -1,25 +1,150 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Login from "./components/auth/Login";
+import Register from "./components/auth/Register";
+import Navbar from "./components/navbar/Navbar";
+import Home from "./pages/Home";
+import NotFound from "./pages/NotFound";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import AuthProvider from "./apis/AuthContextApi";
+import ProtectedRoute from "./routes/ProtectedRoute";
+import PublicRoute from "./routes/PublicRoute";
+import Profile from "./components/profile/Profile";
+import UploadPhoto from "./components/profile/UploadPhoto";
+import ProfileDefault from "./components/profile/ProfileDefault";
+import ResetPassword from "./components/auth/ResetPassword";
+import PhoneAuth from "./components/auth/PhoneAuth";
+import AddProfileData from "./components/profile/AddProfileData";
+import Admin from "./components/admin/Admin";
+import AddHotel from "./components/hotelsandCity/AddHotel";
+import AdminRoute from "./routes/AdminRoute";
+import ListOfUsers from "./components/admin/ListOfUsers";
+import Users from "./components/admin/Users";
+import AdminPanelContainer from './components/admin/AdminPanelContainer';
+import UserDetails from './components/admin/UserDetails';
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <AuthProvider>
+      <Router>
+        <Navbar />
+        <ToastContainer theme="dark" />
+        <Routes>
+          {/* Hptel route */}
+          <Route path="/" element={<Home />} />
+          <Route
+            path="admin"
+            element={
+              <AdminRoute>
+                <Admin />
+              </AdminRoute>
+            }
+          >
+            <Route
+              index
+              element={
+                <AdminRoute>
+                  <AdminPanelContainer />
+                </AdminRoute>
+              }
+            />
+            <Route
+              path="users"
+              element={
+                <AdminRoute>
+                  <Users />
+                </AdminRoute>
+              }
+            />
+            <Route
+              path=":id"
+              element={
+                <AdminRoute>
+                  <UserDetails />
+                </AdminRoute>
+              }
+            />
+            <Route
+              path="add-hotel"
+              element={
+                <AdminRoute>
+                  <AddHotel />
+                </AdminRoute>
+              }
+            />
+          </Route>
+
+          <Route
+            path="profile"
+            element={
+              <ProtectedRoute>
+                <Profile />
+              </ProtectedRoute>
+            }
+          >
+            <Route
+              index
+              element={
+                <ProtectedRoute>
+                  <ProfileDefault />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="upload-profile-photo"
+              element={
+                <ProtectedRoute>
+                  <UploadPhoto />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="add-profile"
+              element={
+                <ProtectedRoute>
+                  <AddProfileData />
+                </ProtectedRoute>
+              }
+            />
+          </Route>
+          <Route
+            path="/login"
+            element={
+              <PublicRoute>
+                <Login />
+              </PublicRoute>
+            }
+          />
+          <Route
+            path="/register"
+            element={
+              <PublicRoute>
+                <Register />
+              </PublicRoute>
+            }
+          />
+          <Route
+            path="/reset-password"
+            element={
+              <PublicRoute>
+                <ResetPassword />
+              </PublicRoute>
+            }
+          />
+          <Route
+            path="/phone-auth"
+            element={
+              <PublicRoute>
+                <PhoneAuth />
+              </PublicRoute>
+            }
+          />
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+      </Router>
+    </AuthProvider>
   );
-}
+};
 
 export default App;

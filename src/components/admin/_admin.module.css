@@ -1,0 +1,233 @@
+#adminPanel {
+  width: 100%;
+  background-color: #eee;
+}
+
+#adminPanel > article {
+  display: flex;
+  height: 100vh;
+  border-top: 1px solid #ccc;
+}
+
+.adminSidebar {
+  background-color: #fff;
+  padding: 20px;
+  flex-basis: 20%;
+}
+.adminMain {
+  background-color: #f0f4f7;
+  padding: 20px;
+  flex-basis: 80%;
+}
+
+.adminSidebar nav a,
+.adminSidebar main a {
+  justify-content: start;
+  text-decoration: none;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  height: 30px;
+  color: #3f51b5;
+  font-weight: 100;
+  padding: 21px 10px;
+}
+
+.icons {
+  font-size: 20px;
+  position: relative;
+  top: 2px;
+}
+
+.adminSidebar nav a:hover,
+.adminSidebar main a:hover {
+  border-radius: 5px;
+  background-color: #0821b1;
+  color: #fff;
+}
+.adminMain > aside {
+  display: flex;
+}
+
+.card {
+  background-color: #fff;
+  min-height: 100px;
+  padding: 15px;
+  box-shadow: 1px 1px 3px 1px #efefef;
+  border-radius: 8px;
+  flex-basis: 24%;
+}
+
+.card h2 {
+  font-size: 17px;
+  font-weight: 600;
+  color: #0821b1;
+  padding: 5px 0px 10px;
+  margin: 5px 0 10px;
+  text-transform: uppercase;
+  border-bottom: 1px solid #efefef;
+}
+
+.card p {
+  font-weight: 100;
+  padding: 3px 0;
+  display: flex;
+  justify-content: space-between;
+}
+.card p a {
+  padding: 7px 10px;
+  background: #00d0a1;
+  margin: 10px 0;
+  display: block;
+  border-radius: 5px;
+  text-decoration: none;
+  color: #fff;
+  font-size: 14px;
+}
+.card p a:hover {
+  background-color: #0c25b0;
+}
+
+.card h2 span svg {
+  margin: 0px 6px;
+}
+
+.card time {
+  font-size: 12px;
+  color: #999;
+  letter-spacing: 2.4px;
+}
+
+.card p span:nth-child(2) {
+  background: #4caf50;
+  /* padding: 7px; */
+  border-radius: 100%;
+  height: 23px;
+  width: 23px;
+  display: flex;
+  text-align: center;
+  color: #fff;
+  margin: 0 5px;
+  font-size: 12px;
+  align-items: center;
+  justify-content: center;
+}
+
+.cardBody {
+  width: 100%;
+  display: flex;
+  gap: 20px;
+  padding: 10px;
+  flex-direction: row;
+}
+
+.cardBody > div {
+  flex-basis: 24%;
+  background: #fff;
+  padding: 10px;
+  box-shadow: 1px 1px 1px 1px #efefef;
+  border-radius: 5px;
+  min-height: 200px;
+}
+.cardBody img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+.cardBody h2 {
+  font-size: 16px;
+  color: #111;
+  text-transform: uppercase;
+  padding: 10px 0;
+}
+
+.cardBody p {
+  padding: 5px 0;
+  font-weight: 100;
+}
+
+.cardBody a {
+  width: 100%;
+  background-color: #00d0a1;
+  color: #fff;
+  padding: 7px;
+  display: block;
+  margin: 10px 0;
+  text-decoration: none;
+  text-align: center;
+  border-radius: 5px;
+  border-bottom: 2px solid #279086;
+  font-weight: 100;
+  text-transform: capitalize;
+  font-size: 14x;
+}
+
+.cardBody a:hover {
+  background-color: #279086;
+  border: #00d0a1 1px solid;
+}
+
+.address {
+  min-height: 70px;
+}
+
+.userDetails > article {
+  display: flex;
+  padding: 10px 10px;
+  height: 70vh;
+}
+
+.userPhoto {
+  flex-basis: 30%;
+  background: #efefef;
+}
+
+.userPhoto img {
+  width: 100%;
+  border-radius: 1px;
+}
+
+.userDescription {
+  flex-basis: 70%;
+  background: #fff;
+  padding: 0px 20px;
+}
+
+.userDescription h1 {
+  font-size: 3em;
+  font-weight: bold;
+  padding: 20px 0;
+  text-transform: uppercase;
+  color: #0c25b0;
+}
+
+.userDescription ul {
+  list-style: none;
+}
+
+.userDescription ul li {
+  padding: 10px 0;
+  font-size: 15px;
+  font-weight: 100;
+}
+
+.adminMain h2 {
+  padding: 10px 0;
+  text-transform: uppercase;
+  font-weight: 600;
+  letter-spacing: 1.4px;
+  color: #607d8b;
+  border-bottom: 1px solid #607d8b1f;
+  margin: 10px 0 20px;
+}
+
+.adminMain form {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  position: relative;
+}
+
+.adminMain form div {
+  flex-basis: 24%;
+}

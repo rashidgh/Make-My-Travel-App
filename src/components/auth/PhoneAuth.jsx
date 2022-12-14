@@ -46,7 +46,7 @@ const PhoneAuth = () => {
             <div className="form-group">
               <label htmlFor="phone">Phone number</label>
               <span className={Styles.phoneIcon}>
-                <BsTelephoneFill />
+                
               </span>
 
               <input
